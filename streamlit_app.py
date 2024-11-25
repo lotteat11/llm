@@ -1,5 +1,8 @@
-model_id = "EleutherAI/gpt-neo-2.7B"  # Replace with a suitable model
 from huggingface_hub import InferenceApi
+from huggingface_hub import InferenceApi
+
+model_id = "EleutherAI/gpt-neo-2.7B"  # Replace with a suitable model
+api_token="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"
 inference = InferenceApi(repo_id=model_id, token=api_token)
 
 def main():
