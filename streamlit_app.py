@@ -3,7 +3,8 @@ from transformers import pipeline
 from PIL import Image
 
 model_id = "meta-llama/llama-3.2-1B"
-pipe = pipeline("text-generation", model=model_id)
+token = "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"
+pipe = pipeline("text-generation", model="meta-llama/llama-3.2-1B", use_auth_token=token)
 
 def main():
     st.title("Mistral-Powered Text Generation")
