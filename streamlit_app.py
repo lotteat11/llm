@@ -4,7 +4,15 @@ from PIL import Image
 
 model_id = "meta-llama/llama-3.2-1B"
 token = "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"
-pipe = pipeline("text-generation", model="meta-llama/llama-3.2-1B", use_auth_token=token)
+
+model_id = "meta-llama/Llama-3.2-1B"
+
+pipe = pipeline(
+    "text-generation", 
+    model=model_id, 
+    torch_dtype=torch.bfloat16, 
+    device_map="auto"
+)
 
 def main():
     st.title("Mistral-Powered Text Generation")
