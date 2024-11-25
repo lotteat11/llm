@@ -2,7 +2,7 @@ import streamlit as st
 from transformers import pipeline
 from PIL import Image
 
-model_id = "mistralai/Mistral-7B-Instruct"
+model_id = "meta-llama/llama-3.2-1B"
 pipe = pipeline("text-generation", model=model_id)
 
 def main():
