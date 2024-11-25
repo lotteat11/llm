@@ -1,4 +1,4 @@
-from huggingface_hub import InferenceApi
+import streamlit as st
 from huggingface_hub import InferenceApi
 
 model_id = "EleutherAI/gpt-neo-2.7B"  # Replace with a suitable model
