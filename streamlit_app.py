@@ -5,7 +5,7 @@ from huggingface_hub import InferenceApi
 API_TOKEN = "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"
 
 # Initialize the Inference API
-inference = InferenceApi(repo_id="gpt2", token=API_TOKEN)  # Replace "gpt2" with your model
+inference = InferenceApi(repo_id="EleutherAI/gpt-neo-2.7B", token=API_TOKEN)  # Replace "gpt2" with your model
 
 def query_huggingface(model_input):
     """
