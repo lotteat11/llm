@@ -11,7 +11,8 @@ pipe = pipeline(
     "text-generation", 
     model=model_id, 
     torch_dtype=torch.bfloat16, 
-    device_map="auto"
+    device_map="auto",
+    api_token=token
 )
 
 def main():
