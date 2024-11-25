@@ -1,6 +1,6 @@
 import streamlit as st
 from transformers import pipeline
-from PIL import Image
+import torch
 
 model_id = "meta-llama/llama-3.2-1B"
 token = "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"
