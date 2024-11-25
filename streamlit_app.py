@@ -6,7 +6,8 @@ API_TOKEN = "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"
 
 # Initialize the Inference API
 inference = InferenceApi(repo_id="EleutherAI/gpt-neo-2.7B", token=API_TOKEN)  # Replace "gpt2" with your model
-inference = InferenceApi(repo_id="EleutherAI/gpt-neo-2.7B", token=API_TOKEN)
+
+response = inference(inputs=model_input)  # No additional parameters
 
 def query_huggingface(model_input):
     try:
