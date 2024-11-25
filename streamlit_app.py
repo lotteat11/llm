@@ -2,19 +2,21 @@ import streamlit as st
 from transformers import pipeline
 from PIL import Image
 
-pipeline = pipeline(task="image-classification", model="julien-c/hotdog-not-hotdog")
+model_id = "mistralai/Mistral-7B-Instruct"
+pipe = pipeline("text-generation", model=model_id)
 
-st.title("Hot Dog? Or Not?")
+def main():
+    st.title("Mistral-Powered Text Generation")
 
-file_name = st.file_uploader("Upload a hot dog candidate image")
+    user_input = st.text_area("Enter your prompt:")
 
-if file_name is not None:
-    col1, col2 = st.columns(2)
+    if st.button("Generate"):
+        if user_input:
+            with st.spinner("Generating text..."):
+                response = pipe(user_input, max_length=100, num_return_sequences=1)[0]['generated_text']
+                st.write(response)
+        else:
+            st.warning("Please enter a prompt.")
 
-    image = Image.open(file_name)
-    col1.image(image, use_column_width=True)
-    predictions = pipeline(image)
-
-    col2.header("Probabilities")
-    for p in predictions:
-        col2.subheader(f"{ p['label'] }: { round(p['score'] * 100, 1)}%")
+if __name__ == "__main__":
+    main()
